@@ -1,0 +1,36 @@
+{
+    "fields": [
+        {
+            "name": "title",
+            "type": "string"
+        },
+        {
+            "name": "content",
+            "type": "text"
+        },
+        {
+            "name": "year",
+            "type": "integer"
+        },
+        {
+            "name": "price",
+            "type": "float"
+        },
+        {
+            "name": "isbn",
+            "type": "string"
+        },
+        {
+            "name": "author_id",
+            "type": "integer"
+        },
+        {
+            "name": "publisher_id",
+            "type": "integer"
+        },
+        {
+            "name": "photo",
+            "type": "file"
+        }
+    ]
+}

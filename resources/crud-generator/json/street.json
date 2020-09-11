@@ -1,0 +1,20 @@
+{
+    "fields": [
+        {
+            "name": "street",
+            "type": "text"
+        },
+        {
+            "name": "city",
+            "type": "text"
+        },
+        {
+            "name": "state",
+            "type": "string"
+        },
+        {
+            "name": "zip_code",
+            "type": "string"
+        }
+    ]
+ }
