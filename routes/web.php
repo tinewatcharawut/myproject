@@ -94,7 +94,7 @@ Route::get("/myprofile/{id}", "MyProfileController@show");
 Route::get( "/coronavirus" , "MyProfileController@coronavirus" );
 
 Route::get("/teacher" , function (){
-	return view("teacher/index");
+    return view("teacher/index");
 });
 
 Route::get("/student" , function (){
@@ -105,18 +105,23 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/', function () {
-    return view('table');
-});
+// Route::get('/', function () {
+//     return view('table');
+// });
 
-Route::resource('/covid19','Covid19Controller');
-// Route::get('/covid19', 'Covid19Controller@index');
-// Route::get("/covid19/create", "Covid19Controller@create");
-// Route::post("/covid19", "Covid19Controller@store");
-// Route::get('/covid19/{id}', 'Covid19Controller@show');
-// Route::get("/covid19/{id}/edit", "Covid19Controller@edit");
-// Route::patch("/covid19/{id}", "Covid19Controller@update");
-// Route::delete('/covid19/{id}', 'Covid19Controller@destroy');
+Route::middleware(['auth', 'role:admin,teacher'])->group(function () {
+    Route::resource('/covid19','Covid19Controller')->only(['index', 'show' ]);
+    // Route::get('/covid19', 'Covid19Controller@index');
+    // Route::get("/covid19/create", "Covid19Controller@create");
+    // Route::post("/covid19", "Covid19Controller@store");
+    // Route::get('/covid19/{id}', 'Covid19Controller@show');
+    // Route::get("/covid19/{id}/edit", "Covid19Controller@edit");
+    // Route::patch("/covid19/{id}", "Covid19Controller@update");
+    // Route::delete('/covid19/{id}', 'Covid19Controller@destroy');
+});
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::resource('covid19', 'Covid19Controller')->except(['index', 'show' ]);
+    });
 
 Route::resource('post', 'PostController');
 Route::resource('book', 'BookController');
