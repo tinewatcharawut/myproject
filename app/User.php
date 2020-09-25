@@ -9,7 +9,14 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use Notifiable;
-
+    
+    public function profile(){
+        return $this->hasOne('App\Profile', 'user_id', 'id' );
+    }
+    public function vehicles(){
+        return $this->hasMany('App\Vehicle', 'user_id', 'id');
+    } 
+ 
     /**
      * The attributes that are mass assignable.
      *

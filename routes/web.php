@@ -126,3 +126,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 Route::resource('post', 'PostController');
 Route::resource('book', 'BookController');
 Route::resource('street', 'StreetController');
+
+Route::resource('profile', 'ProfileController');
+Route::resource('vehicle', 'VehicleController');
+Route::resource('user', 'UserController');
