@@ -16,6 +16,17 @@ class User extends Authenticatable
     public function vehicles(){
         return $this->hasMany('App\Vehicle', 'user_id', 'id');
     } 
+    
+    public function orders(){
+        return $this->hasMany('App\Order', 'user_id'); 
+    }    
+    public function order_products(){
+        return $this->hasMany('App\OrderProduct', 'user_id'); 
+    }   
+    public function payments(){
+        return $this->hasMany('App\Payment', 'user_id'); 
+    }
+
  
     /**
      * The attributes that are mass assignable.
