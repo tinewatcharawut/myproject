@@ -142,6 +142,14 @@ class OrderController extends Controller
             case "completed" : 
                 $requestData['completed_at'] = date("Y-m-d H:i:s");
                 break;
+            case "cancelled" :
+                $requestData['calcelles_at'] = date("Y-m-d H:i:s");
+                //ปรับเพิ่มสินค้าในสต๊อก
+                $order_products = $order->order_products;
+                foreach($order_products as $item)
+                {
+                    Product::where('id',$item->product_id)->increment('quantity',$item->quantity);
+                }
         }
         $order->update($requestData);
         return redirect('order')->with('flash_message', 'Order updated!');

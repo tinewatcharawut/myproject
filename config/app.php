@@ -136,6 +136,8 @@ return [
 
     'providers' => [
 
+        //Add this line of code
+        Barryvdh\DomPDF\ServiceProvider::class,
         /*
          * Laravel Framework Service Providers...
          */
@@ -228,7 +230,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'HTML' => Collective\Html\HtmlFacade::class,
-
+        'PDF' => Barryvdh\DomPDF\Facade::class,
     ],
 
 ];

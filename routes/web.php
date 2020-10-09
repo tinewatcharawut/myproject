@@ -138,3 +138,4 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('order-product', 'OrderProductController');
 });
 
+Route::get('/product/{id}/pdf', 'ProductController@pdf_index');

@@ -7,9 +7,18 @@ use App\Http\Requests;
 
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+use PDF;
 
 class ProductController extends Controller
 {
+    public function pdf_index() {
+        $product = Product::all();
+        $pdf = PDF::loadView('test_pdf',['product'=>$product]);
+        return $pdf->stream('test.pdf'); //แบบนี้จะ stream มา preview
+        //return $pdf->download('test.pdf'); //แบบนี้จะดาวโหลดเลย
+  }
     /**
      * Display a listing of the resource.
      *
