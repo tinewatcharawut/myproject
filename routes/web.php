@@ -85,6 +85,13 @@ Route::get("/gallery/spider" , function(){
     return view("test/spider", compact("spider") );
 });
 
+Route::get( "/newgallery" , "MyProfileController@gallery" );
+Route::get( "/newgallery/ant" , "MyProfileController@ant" );
+Route::get( "/newgallery/bird" , "MyProfileController@bird" );
+Route::get( "/newgallery/cat" , "MyProfileController@bird" );
+Route::get( "/newgallery/god" , "MyProfileController@bird" );
+Route::get( "/newgallery/spider" , "MyProfileController@bird" );
+
 Route::get("/myprofile/create","MyProfileController@create");
 
 Route::get("/myprofile/{id}/edit", "MyProfileController@edit");
