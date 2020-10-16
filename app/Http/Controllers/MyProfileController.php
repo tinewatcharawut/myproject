@@ -53,4 +53,39 @@ class MyProfileController extends Controller
         return view("myprofile/coronavirus", compact("reports") );
     }
 
+    public function gallery()
+    {
+        $ant = url("images/ant.jpg");
+        $bird = url("images/bird.jpg");
+        $cat = url("images/cat.jpg");
+        $god = url("images/god.jpg");
+        $spider = url("images/spider.jpg");
+        return  view("test/index1", compact("ant","bird","cat","god","spider") );
+    }
+    public function ant()
+    {
+        $ant = url("images/ant.jpg");
+        return  view("test/ant", compact("ant") );
+    }
+    public function bird()
+    {
+        $bird = url("images/bird.jpg");
+        return  view("test/bird", compact("bird") );
+    }
+    public function cat()
+    {
+        $bird = url("images/cat.jpg");
+        return  view("test/cat", compact("cat") );
+    }
+    public function god()
+    {
+        $bird = url("images/god.jpg");
+        return  view("test/god", compact("god") );
+    }
+    public function spider()
+    {
+        $bird = url("images/spider.jpg");
+        return  view("test/spider", compact("spider") );
+    }
+
 }
